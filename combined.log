@@ -1,0 +1,20 @@
+{"level":"info","message":"Creating a new post","service":"post-service","timestamp":"2024-12-18 22:44:00"}
+{"level":"info","message":"Post created successfully","service":"post-service","timestamp":"2024-12-18 22:44:01"}
+{"level":"info","message":"Deleting Orcamento by id: e80bc3c3-8ccf-4407-aa43-fcecbc8054b2","service":"post-service","timestamp":"2024-12-18 22:45:30"}
+{"level":"info","message":"Orcamento deleted successfully","service":"post-service","timestamp":"2024-12-18 22:45:30"}
+{"level":"info","message":"Creating a new Orcamento","service":"post-service","timestamp":"2024-12-18 22:45:48"}
+{"level":"info","message":"Orcamento created successfully","service":"post-service","timestamp":"2024-12-18 22:45:48"}
+{"level":"info","message":"Fetching Orcamento by id: 28ec6e78-277b-492a-b37c-ea863edfa544","service":"post-service","timestamp":"2024-12-18 22:46:13"}
+{"level":"info","message":"Orcamento","service":"post-service","timestamp":"2024-12-18 22:46:13"}
+{"level":"info","message":"Updating Orcamento by id: 28ec6e78-277b-492a-b37c-ea863edfa544","service":"post-service","timestamp":"2024-12-18 22:47:10"}
+{"level":"info","message":"Orcamento updated successfully","service":"post-service","timestamp":"2024-12-18 22:47:10"}
+{"level":"info","message":"Fetching Orcamento by id: 28ec6e78-277b-492a-b37c-ea863edfa544","service":"post-service","timestamp":"2024-12-18 22:47:43"}
+{"level":"info","message":"Orcamento","service":"post-service","timestamp":"2024-12-18 22:47:43"}
+{"level":"info","message":"Fetching all Orcamentos","service":"post-service","timestamp":"2024-12-18 22:48:12"}
+{"level":"info","message":"Orcamentos","service":"post-service","timestamp":"2024-12-18 22:48:12"}
+{"level":"info","message":"Fetching all Orcamentos","service":"post-service","timestamp":"2024-12-18 22:49:46"}
+{"level":"info","message":[{"convenio":"Porto Seguro","created_at":"2024-12-19T01:45:50.336972+00:00","email":"rubens.teste.alterado@teste.com","id":"28ec6e78-277b-492a-b37c-ea863edfa544","medico":"1234.1874","nomePaciente":"Rubens 2","nomeSolicitante":"Rubens","observacoes":"Estou com um teste de orcamento aqui","telefone":"11996611171"}],"service":"post-service","timestamp":"2024-12-18 22:49:46"}
+{"level":"info","message":"Fetching Orcamento by id: 28ec6e78-277b-492a-b37c-ea863edfa544","service":"post-service","timestamp":"2024-12-18 22:49:53"}
+{"level":"info","message":{"convenio":"Porto Seguro","created_at":"2024-12-19T01:45:50.336972+00:00","email":"rubens.teste.alterado@teste.com","id":"28ec6e78-277b-492a-b37c-ea863edfa544","medico":"1234.1874","nomePaciente":"Rubens 2","nomeSolicitante":"Rubens","observacoes":"Estou com um teste de orcamento aqui","telefone":"11996611171"},"service":"post-service","timestamp":"2024-12-18 22:49:53"}
+{"level":"info","message":"Deleting Orcamento by id: 28ec6e78-277b-492a-b37c-ea863edfa544","service":"post-service","timestamp":"2024-12-18 22:50:33"}
+{"level":"info","message":"Orcamento deleted successfully","service":"post-service","timestamp":"2024-12-18 22:50:33"}
