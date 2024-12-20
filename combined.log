@@ -18,3 +18,46 @@
 {"level":"info","message":{"convenio":"Porto Seguro","created_at":"2024-12-19T01:45:50.336972+00:00","email":"rubens.teste.alterado@teste.com","id":"28ec6e78-277b-492a-b37c-ea863edfa544","medico":"1234.1874","nomePaciente":"Rubens 2","nomeSolicitante":"Rubens","observacoes":"Estou com um teste de orcamento aqui","telefone":"11996611171"},"service":"post-service","timestamp":"2024-12-18 22:49:53"}
 {"level":"info","message":"Deleting Orcamento by id: 28ec6e78-277b-492a-b37c-ea863edfa544","service":"post-service","timestamp":"2024-12-18 22:50:33"}
 {"level":"info","message":"Orcamento deleted successfully","service":"post-service","timestamp":"2024-12-18 22:50:33"}
+{"level":"info","message":"Creating a new Procedimento","service":"post-service","timestamp":"2024-12-19 20:05:45"}
+{"level":"error","message":"Error creating procedimento, error: undefined","service":"post-service","timestamp":"2024-12-19 20:05:45"}
+{"level":"error","message":"Error: undefined","service":"post-service","timestamp":"2024-12-19 20:05:45"}
+{"level":"info","message":"Creating a new Procedimento","service":"post-service","timestamp":"2024-12-19 20:09:13"}
+{"level":"error","message":"Error creating procedimentos, error: new row violates row-level security policy for table \"procedimentos\"","service":"post-service","timestamp":"2024-12-19 20:09:14"}
+{"level":"error","message":"Error: new row violates row-level security policy for table \"procedimentos\"","service":"post-service","timestamp":"2024-12-19 20:09:14"}
+{"level":"info","message":"Creating a new Procedimento","service":"post-service","timestamp":"2024-12-19 20:10:50"}
+{"level":"info","message":"Procedimento created successfully","service":"post-service","timestamp":"2024-12-19 20:10:50"}
+{"level":"info","message":"Creating a new Medico","service":"post-service","timestamp":"2024-12-19 20:20:26"}
+{"level":"info","message":"Medico created successfully","service":"post-service","timestamp":"2024-12-19 20:20:27"}
+{"level":"info","message":"Creating a new Medico","service":"post-service","timestamp":"2024-12-19 20:20:50"}
+{"level":"info","message":"Medico created successfully","service":"post-service","timestamp":"2024-12-19 20:20:50"}
+{"level":"info","message":"Fetching all Medicos","service":"post-service","timestamp":"2024-12-19 20:21:13"}
+{"level":"info","message":[{"created_at":"2024-12-19T23:20:28.875306+00:00","crm":"123456","id":"6b549a29-385d-4149-979f-cc22127e5c2d","name":"Isaac Saulo"},{"created_at":"2024-12-19T23:20:52.420953+00:00","crm":"3711","id":"5ddae08d-83df-4842-906f-79d3d5583960","name":"Wilmar Mendonça"}],"service":"post-service","timestamp":"2024-12-19 20:21:13"}
+{"level":"info","message":"Fetching Medico by id: 6b549a29-385d-4149-979f-cc22127e5c2d","service":"post-service","timestamp":"2024-12-19 20:21:25"}
+{"level":"info","message":{"created_at":"2024-12-19T23:20:28.875306+00:00","crm":"123456","id":"6b549a29-385d-4149-979f-cc22127e5c2d","name":"Isaac Saulo"},"service":"post-service","timestamp":"2024-12-19 20:21:25"}
+{"level":"info","message":"Fetching all Procedimentos","service":"post-service","timestamp":"2024-12-19 20:22:51"}
+{"level":"info","message":[{"created_at":"2024-12-19T23:10:52.134715+00:00","id":"1d3507f3-11f9-446f-9c2a-e3785cd22b4c","name":"Retirada de Sangue"}],"service":"post-service","timestamp":"2024-12-19 20:22:51"}
+{"level":"info","message":"Creating a new consulta","service":"post-service","timestamp":"2024-12-19 20:24:04"}
+{"level":"error","message":"Error creating consulta, error: new row violates row-level security policy for table \"consultas\"","service":"post-service","timestamp":"2024-12-19 20:24:04"}
+{"level":"error","message":"Error: new row violates row-level security policy for table \"consultas\"","service":"post-service","timestamp":"2024-12-19 20:24:04"}
+{"level":"info","message":"Creating a new consulta","service":"post-service","timestamp":"2024-12-19 20:25:15"}
+{"level":"error","message":"Error creating consulta, error: insert or update on table \"consultas\" violates foreign key constraint \"consulta_user_fkey\"","service":"post-service","timestamp":"2024-12-19 20:25:16"}
+{"level":"error","message":"Error: insert or update on table \"consultas\" violates foreign key constraint \"consulta_user_fkey\"","service":"post-service","timestamp":"2024-12-19 20:25:16"}
+{"level":"info","message":"Creating a new consulta","service":"post-service","timestamp":"2024-12-19 21:33:26"}
+{"level":"info","message":"Consulta created successfully","service":"post-service","timestamp":"2024-12-19 21:33:26"}
+{"level":"info","message":"Creating a new Orcamento","service":"post-service","timestamp":"2024-12-19 21:34:09"}
+{"level":"error","message":"Error creating orcamento, error: Could not find the 'medico' column of 'orcamentos' in the schema cache","service":"post-service","timestamp":"2024-12-19 21:34:09"}
+{"level":"error","message":"Error: Could not find the 'medico' column of 'orcamentos' in the schema cache","service":"post-service","timestamp":"2024-12-19 21:34:09"}
+{"level":"info","message":"Creating a new Orcamento","service":"post-service","timestamp":"2024-12-19 21:34:53"}
+{"level":"error","message":"Error creating orcamento, error: Could not find the 'medico' column of 'orcamentos' in the schema cache","service":"post-service","timestamp":"2024-12-19 21:34:53"}
+{"level":"error","message":"Error: Could not find the 'medico' column of 'orcamentos' in the schema cache","service":"post-service","timestamp":"2024-12-19 21:34:53"}
+{"level":"info","message":"Creating a new Medico","service":"post-service","timestamp":"2024-12-19 21:35:30"}
+{"level":"info","message":"Medico created successfully","service":"post-service","timestamp":"2024-12-19 21:35:30"}
+{"level":"info","message":"Creating a new Medico","service":"post-service","timestamp":"2024-12-19 21:35:43"}
+{"level":"info","message":"Medico created successfully","service":"post-service","timestamp":"2024-12-19 21:35:43"}
+{"level":"info","message":"Creating a new Orcamento","service":"post-service","timestamp":"2024-12-19 21:37:04"}
+{"level":"error","message":"Error creating orcamento, error: insert or update on table \"orcamentos\" violates foreign key constraint \"orcamentos_medico_fkey\"","service":"post-service","timestamp":"2024-12-19 21:37:05"}
+{"level":"error","message":"Error: insert or update on table \"orcamentos\" violates foreign key constraint \"orcamentos_medico_fkey\"","service":"post-service","timestamp":"2024-12-19 21:37:05"}
+{"level":"info","message":"Creating a new Orcamento","service":"post-service","timestamp":"2024-12-19 21:37:28"}
+{"level":"info","message":"Orcamento created successfully","service":"post-service","timestamp":"2024-12-19 21:37:28"}
+{"level":"info","message":"Creating a new consulta","service":"post-service","timestamp":"2024-12-19 21:38:30"}
+{"level":"info","message":"Consulta created successfully","service":"post-service","timestamp":"2024-12-19 21:38:30"}

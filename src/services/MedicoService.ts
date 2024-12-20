@@ -1,8 +1,8 @@
 import { createClient, SupabaseClient } from "@supabase/supabase-js";
-import { Orcamento } from "../interfaces/OrcamentoInterface";
+import { Medico } from "../interfaces/MedicoInterface";
 import logger from "../utils/logger";
 
-export class OrcamentoService {
+export class MedicoService {
 
     private createAuthenticatedClient(token: string): SupabaseClient {
         return createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY, {
@@ -14,62 +14,62 @@ export class OrcamentoService {
         });
     }
 
-    public async getById(id: string, token: string): Promise<{ data: Orcamento; error: any }> {
+    public async getById(id: string, token: string): Promise<{ data: Medico; error: any }> {
         const supabase = this.createAuthenticatedClient(token);
         const { data, error } = await supabase
-            .from('orcamentos')
+            .from('medicos')
             .select()
             .eq('id', id)
             .single();
 
         if (error) {
-            logger.error(`Error fetching orcamento by id: ${id}, error: ${error.message}`);
+            logger.error(`Error fetching medico by id: ${id}, error: ${error.message}`);
         }
         return { data, error };
     }
 
-    public async getAll(token: string): Promise<{ data: Orcamento[]; error: any }> {
+    public async getAll(token: string): Promise<{ data: Medico[]; error: any }> {
         const supabase = this.createAuthenticatedClient(token);
         const { data, error } = await supabase
-            .from('orcamentos')
+            .from('medicos')
             .select();
 
         if (error) {
-            logger.error('Error fetching all orcamentos, error: ${error.message}');
+            logger.error('Error fetching all medicos, error: ${error.message}');
         }
         return { data, error };
     }
 
     public async delete(id: string, token: string): Promise<{ success: boolean; error: any }> {
         const supabase = this.createAuthenticatedClient(token);
-        const { error } = await supabase.from('orcamentos').delete().eq('id', id);
+        const { error } = await supabase.from('medicos').delete().eq('id', id);
         if (error) {
-            logger.error(`Error deleting orcamento by id: ${id}, error: ${error.message}`);
+            logger.error(`Error deleting medicos by id: ${id}, error: ${error.message}`);
         }
         return { success: !error, error };
     }
 
-    public async create(orcamento: Orcamento, token: string): Promise<{ success: boolean; error: any }> {
+    public async create(medicos: Medico, token: string): Promise<{ success: boolean; error: any }> {
         const supabase = this.createAuthenticatedClient(token);
         const { error } = await supabase
-            .from('orcamentos')
-            .insert(orcamento);
+            .from('medicos')
+            .insert(medicos);
 
         if (error) {
-            logger.error(`Error creating orcamento, error: ${error.message}`);
+            logger.error(`Error creating medicos, error: ${error.message}`);
         }
         return { success: !error, error };
     }
 
-    public async update(orcamento: Orcamento, token: string): Promise<{ success: boolean; error: any }> {
+    public async update(medicos: Medico, token: string): Promise<{ success: boolean; error: any }> {
         const supabase = this.createAuthenticatedClient(token);
         const { error } = await supabase
-            .from('orcamentos')
-            .update(orcamento)
-            .eq('id', orcamento.id);
+            .from('medicos')
+            .update(medicos)
+            .eq('id', medicos.id);
 
         if (error) {
-            logger.error(`Error updating orcamento by id: ${orcamento.id}, error: ${error.message}`);
+            logger.error(`Error updating medicos by id: ${medicos.id}, error: ${error.message}`);
         }
         return { success: !error, error };
     }

@@ -1,5 +1,6 @@
 import { AuthService } from "../services/AuthService";
 import { Request, Response } from "express-serve-static-core";
+import logger from "../utils/logger";
 
 export class UserController {
     private supabaseService: AuthService;

@@ -1,8 +1,10 @@
+import {UUID} from "node:crypto";
+
 export interface Consulta {
-    id: number;
-    NomePaciente: number;
+    id: UUID;
+    user: UUID;
     medico: string;
-    expecialidade: string;
+    procedimento: UUID;
     data: string;
     hora: string;
     create_at: string;
