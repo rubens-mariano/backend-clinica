@@ -61,3 +61,14 @@
 {"level":"info","message":"Orcamento created successfully","service":"post-service","timestamp":"2024-12-19 21:37:28"}
 {"level":"info","message":"Creating a new consulta","service":"post-service","timestamp":"2024-12-19 21:38:30"}
 {"level":"info","message":"Consulta created successfully","service":"post-service","timestamp":"2024-12-19 21:38:30"}
+{"level":"info","message":"Creating a new Procedimento","service":"post-service","timestamp":"2024-12-19 22:26:04"}
+{"level":"info","message":"Procedimento created successfully","service":"post-service","timestamp":"2024-12-19 22:26:04"}
+{"level":"info","message":"Creating a new Orcamento","service":"post-service","timestamp":"2024-12-19 22:27:07"}
+{"level":"info","message":"Orcamento created successfully","service":"post-service","timestamp":"2024-12-19 22:27:07"}
+{"level":"info","message":"Creating a new consulta","service":"post-service","timestamp":"2024-12-19 22:27:38"}
+{"level":"info","message":"Consulta created successfully","service":"post-service","timestamp":"2024-12-19 22:27:38"}
+{"level":"info","message":"Creating a new Medico","service":"post-service","timestamp":"2024-12-19 22:32:06"}
+{"level":"error","message":"Error creating medicos, error: JWT expired","service":"post-service","timestamp":"2024-12-19 22:32:06"}
+{"level":"error","message":"Error: JWT expired","service":"post-service","timestamp":"2024-12-19 22:32:06"}
+{"level":"info","message":"Creating a new Medico","service":"post-service","timestamp":"2024-12-19 22:32:32"}
+{"level":"info","message":"Medico created successfully","service":"post-service","timestamp":"2024-12-19 22:32:32"}

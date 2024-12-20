@@ -12,3 +12,5 @@
 {"level":"error","message":"Error: Could not find the 'medico' column of 'orcamentos' in the schema cache","service":"post-service","timestamp":"2024-12-19 21:34:53"}
 {"level":"error","message":"Error creating orcamento, error: insert or update on table \"orcamentos\" violates foreign key constraint \"orcamentos_medico_fkey\"","service":"post-service","timestamp":"2024-12-19 21:37:05"}
 {"level":"error","message":"Error: insert or update on table \"orcamentos\" violates foreign key constraint \"orcamentos_medico_fkey\"","service":"post-service","timestamp":"2024-12-19 21:37:05"}
+{"level":"error","message":"Error creating medicos, error: JWT expired","service":"post-service","timestamp":"2024-12-19 22:32:06"}
+{"level":"error","message":"Error: JWT expired","service":"post-service","timestamp":"2024-12-19 22:32:06"}
