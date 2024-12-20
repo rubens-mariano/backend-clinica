@@ -1,13 +1,19 @@
 import { ConsultaService } from "../services/ConsultaService";
 import { Request, Response } from "express-serve-static-core";
 import logger from "../utils/logger";
+import { AuthService } from "../services/AuthService"
+import {ProcedimentoService} from "../services/ProcedimentoService";
 
 
 export class ConsultaController {
     private consultaService: ConsultaService;
+    private supaBaseService: AuthService
+    private procedimentoService: ProcedimentoService;
 
     constructor() {
         this.consultaService = new ConsultaService();
+        this.supaBaseService = new AuthService();
+        this.procedimentoService = new ProcedimentoService();
         this.getConsultaById = this.getConsultaById.bind(this);
         this.getConsultaByUser = this.getConsultaByUser.bind(this);
         this.getAllConsultas = this.getAllConsultas.bind(this);
@@ -73,7 +79,25 @@ export class ConsultaController {
         logger.info('Creating a new consulta');
         const token = this.getToken(req);
 
+        // Obtém usuário a partir do token
+        const user = await this.supaBaseService.getUser(token);
+
+        // Obtém informações do procedimento
+        const procedimento = await this.procedimentoService.getById(req.body.procedimento, token);
+
+        // Sorteia um médico da lista
+        if (!procedimento.data.medicos || procedimento.data.medicos.length === 0) {
+            return this.handleResponse(res, false, 'Nenhum médico encontrado para o procedimento informado', null);
+        }
+        const randomIndex = Math.floor(Math.random() * procedimento.data.medicos.length);
+        const medicoSelecionado = procedimento.data.medicos[randomIndex];
+
+        // Monta o objeto da consulta
         const consulta = req.body;
+        consulta.user = user.data.user.id;
+        consulta.medico = medicoSelecionado;
+
+        // Cria a consulta
         const { success, error } = await this.consultaService.create(consulta, token);
         this.handleResponse(res, success, error, 'Consulta created successfully');
     }

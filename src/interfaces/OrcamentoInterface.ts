@@ -6,7 +6,6 @@ export interface Orcamento {
     nomePaciente: string;
     email: string;
     telefone: string;
-    medico: UUID;
     convenio: string;
     observacoes: string;
     create_at: string;

@@ -28,16 +28,21 @@ export class ConsultaService {
         return { data, error };
     }
 
-    public async getByUserId(id: string, token: string): Promise<{ data: Consulta[]; error: any }> {
+    public async getByUserId(id: string, token: string): Promise<{ data: any[]; error: any }> {
         const supabase = this.createAuthenticatedClient(token);
+
+        // Consulta com joins para retornar dados relacionados
         const { data, error } = await supabase
             .from('consultas')
-            .select()
+            .select(`*, user:users(*), medico:medicos(*), procedimento:procedimentos(*)`)
             .eq('user', id);
 
+        // Tratamento de erro
         if (error) {
             logger.error(`Error fetching consulta by user id: ${id}, error: ${error.message}`);
         }
+
+        console.log(data);
         return { data, error };
     }
 
@@ -86,4 +91,5 @@ export class ConsultaService {
         }
         return { success: !error, error };
     }
+
 }
