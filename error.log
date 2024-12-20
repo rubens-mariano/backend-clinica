@@ -78,3 +78,31 @@
 {"level":"error","message":"Error: invalid input syntax for type uuid: \"{\"id\":\"715d6617-482b-4eda-8696-536d5b0a1ceb\",\"name\":\"Ultrason\",\"medicos\":[\"5677a2da-e016-4251-b30d-8b9d856802af\",\"8490cbc6-be54-438f-9472-b94dda71f818\"],\"created_at\":\"2024-12-20T18:25:43.138056+00:00\"}\"","service":"post-service","timestamp":"2024-12-20 16:48:32"}
 {"level":"error","message":"Error updating consulta by id: 50c8390b-c799-464d-a51f-98b3ee165e80, error: invalid input syntax for type uuid: \"{\"id\":\"715d6617-482b-4eda-8696-536d5b0a1ceb\",\"name\":\"Ultrason\",\"medicos\":[\"5677a2da-e016-4251-b30d-8b9d856802af\",\"8490cbc6-be54-438f-9472-b94dda71f818\"],\"created_at\":\"2024-12-20T18:25:43.138056+00:00\"}\"","service":"post-service","timestamp":"2024-12-20 16:49:38"}
 {"level":"error","message":"Error: invalid input syntax for type uuid: \"{\"id\":\"715d6617-482b-4eda-8696-536d5b0a1ceb\",\"name\":\"Ultrason\",\"medicos\":[\"5677a2da-e016-4251-b30d-8b9d856802af\",\"8490cbc6-be54-438f-9472-b94dda71f818\"],\"created_at\":\"2024-12-20T18:25:43.138056+00:00\"}\"","service":"post-service","timestamp":"2024-12-20 16:49:38"}
+{"level":"error","message":"Error fetching all procedimentos, error: ${error.message}","service":"post-service","timestamp":"2024-12-20 17:31:05"}
+{"level":"error","message":"Error: JWT expired","service":"post-service","timestamp":"2024-12-20 17:31:05"}
+{"level":"error","message":"Error fetching all medicos, error: ${error.message}","service":"post-service","timestamp":"2024-12-20 17:31:06"}
+{"level":"error","message":"Error: JWT expired","service":"post-service","timestamp":"2024-12-20 17:31:06"}
+{"level":"error","message":"Error fetching consulta by user id: 86e6a321-9d7b-48b7-a274-18ad580a87ad, error: JWT expired","service":"post-service","timestamp":"2024-12-20 17:31:07"}
+{"level":"error","message":"Error: JWT expired","service":"post-service","timestamp":"2024-12-20 17:31:07"}
+{"level":"error","message":"Error creating convenio, error: null value in column \"name\" of relation \"convenios\" violates not-null constraint","service":"post-service","timestamp":"2024-12-20 17:37:16"}
+{"level":"error","message":"Error: null value in column \"name\" of relation \"convenios\" violates not-null constraint","service":"post-service","timestamp":"2024-12-20 17:37:16"}
+{"level":"error","message":"Error creating convenio, error: null value in column \"name\" of relation \"convenios\" violates not-null constraint","service":"post-service","timestamp":"2024-12-20 17:41:21"}
+{"level":"error","message":"Error: null value in column \"name\" of relation \"convenios\" violates not-null constraint","service":"post-service","timestamp":"2024-12-20 17:41:21"}
+{"level":"error","message":"Error deleting medicos by id: 8490cbc6-be54-438f-9472-b94dda71f818, error: update or delete on table \"medicos\" violates foreign key constraint \"consultas_medico_fkey\" on table \"consultas\"","service":"post-service","timestamp":"2024-12-20 18:10:48"}
+{"level":"error","message":"Error: update or delete on table \"medicos\" violates foreign key constraint \"consultas_medico_fkey\" on table \"consultas\"","service":"post-service","timestamp":"2024-12-20 18:10:48"}
+{"level":"error","message":"Error deleting medicos by id: 5677a2da-e016-4251-b30d-8b9d856802af, error: update or delete on table \"medicos\" violates foreign key constraint \"consultas_medico_fkey\" on table \"consultas\"","service":"post-service","timestamp":"2024-12-20 18:10:53"}
+{"level":"error","message":"Error: update or delete on table \"medicos\" violates foreign key constraint \"consultas_medico_fkey\" on table \"consultas\"","service":"post-service","timestamp":"2024-12-20 18:10:53"}
+{"level":"error","message":"Error fetching all convenios, error: ${error.message}","service":"post-service","timestamp":"2024-12-20 18:33:45"}
+{"level":"error","message":"Error: JWT expired","service":"post-service","timestamp":"2024-12-20 18:33:45"}
+{"level":"error","message":"Error fetching all orcamentos, error: ${error.message}","service":"post-service","timestamp":"2024-12-20 18:33:45"}
+{"level":"error","message":"Error: JWT expired","service":"post-service","timestamp":"2024-12-20 18:33:45"}
+{"level":"error","message":"Error fetching all convenios, error: ${error.message}","service":"post-service","timestamp":"2024-12-20 18:33:52"}
+{"level":"error","message":"Error: JWT expired","service":"post-service","timestamp":"2024-12-20 18:33:52"}
+{"level":"error","message":"Error fetching all orcamentos, error: ${error.message}","service":"post-service","timestamp":"2024-12-20 18:33:52"}
+{"level":"error","message":"Error: JWT expired","service":"post-service","timestamp":"2024-12-20 18:33:52"}
+{"level":"error","message":"Error fetching all orcamentos, error: ${error.message}","service":"post-service","timestamp":"2024-12-20 18:34:21"}
+{"level":"error","message":"Error: relation \"public.*, user:users(*), convenio:convenios(*)\" does not exist","service":"post-service","timestamp":"2024-12-20 18:34:21"}
+{"level":"error","message":"Error fetching all orcamentos, error: ${error.message}","service":"post-service","timestamp":"2024-12-20 18:37:08"}
+{"level":"error","message":"Error: relation \"public.*, user:users(*), convenio:convenios(*)\" does not exist","service":"post-service","timestamp":"2024-12-20 18:37:08"}
+{"level":"error","message":"Error fetching all orcamentos, error: ${error.message}","service":"post-service","timestamp":"2024-12-20 18:38:14"}
+{"level":"error","message":"Error: relation \"public.*, convenio:convenios(*)\" does not exist","service":"post-service","timestamp":"2024-12-20 18:38:14"}

@@ -32,11 +32,12 @@ export class OrcamentoService {
         const supabase = this.createAuthenticatedClient(token);
         const { data, error } = await supabase
             .from('orcamentos')
-            .select();
+            .select('*, convenio:convenios(*)');
 
         if (error) {
             logger.error('Error fetching all orcamentos, error: ${error.message}');
         }
+        console.log(data);
         return { data, error };
     }
 
