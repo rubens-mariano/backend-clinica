@@ -17,47 +17,52 @@ export class ConsultaService {
     public async getById(id: string, token: string): Promise<{ data: Consulta; error: any }> {
         const supabase = this.createAuthenticatedClient(token);
         const { data, error } = await supabase
-            .from('posts')
+            .from('consultas')
             .select()
             .eq('id', id)
             .single();
 
         if (error) {
-            logger.error(`Error fetching post by id: ${id}, error: ${error.message}`);
+            logger.error(`Error fetching consulta by id: ${id}, error: ${error.message}`);
         }
         return { data, error };
     }
 
-    public async getByUserId(id: string, token: string): Promise<{ data: Consulta[]; error: any }> {
+    public async getByUserId(id: string, token: string): Promise<{ data: any[]; error: any }> {
         const supabase = this.createAuthenticatedClient(token);
-        const { data, error } = await supabase
-            .from('posts')
-            .select()
-            .eq('userId', id);
 
+        // Consulta com joins para retornar dados relacionados
+        const { data, error } = await supabase
+            .from('consultas')
+            .select(`*, user:users(*), medico:medicos(*), procedimento:procedimentos(*)`)
+            .eq('user', id);
+
+        // Tratamento de erro
         if (error) {
-            logger.error(`Error fetching posts by user id: ${id}, error: ${error.message}`);
+            logger.error(`Error fetching consulta by user id: ${id}, error: ${error.message}`);
         }
+
+        console.log(data);
         return { data, error };
     }
 
     public async getAll(token: string): Promise<{ data: Consulta[]; error: any }> {
         const supabase = this.createAuthenticatedClient(token);
         const { data, error } = await supabase
-            .from('posts')
+            .from('consultas')
             .select();
 
         if (error) {
-            logger.error('Error fetching all posts, error: ${error.message}');
+            logger.error('Error fetching all consulta, error: ${error.message}');
         }
         return { data, error };
     }
 
     public async delete(id: string, token: string): Promise<{ success: boolean; error: any }> {
         const supabase = this.createAuthenticatedClient(token);
-        const { error } = await supabase.from('posts').delete().eq('id', id);
+        const { error } = await supabase.from('consultas').delete().eq('id', id);
         if (error) {
-            logger.error(`Error deleting post by id: ${id}, error: ${error.message}`);
+            logger.error(`Error deleting consulta by id: ${id}, error: ${error.message}`);
         }
         return { success: !error, error };
     }
@@ -65,11 +70,11 @@ export class ConsultaService {
     public async create(consulta: Consulta, token: string): Promise<{ success: boolean; error: any }> {
         const supabase = this.createAuthenticatedClient(token);
         const { error } = await supabase
-            .from('posts')
+            .from('consultas')
             .insert(consulta);
 
         if (error) {
-            logger.error(`Error creating post, error: ${error.message}`);
+            logger.error(`Error creating consulta, error: ${error.message}`);
         }
         return { success: !error, error };
     }
@@ -77,13 +82,14 @@ export class ConsultaService {
     public async update(consulta: Consulta, token: string): Promise<{ success: boolean; error: any }> {
         const supabase = this.createAuthenticatedClient(token);
         const { error } = await supabase
-            .from('posts')
+            .from('consultas')
             .update(consulta)
             .eq('id', consulta.id);
 
         if (error) {
-            logger.error(`Error updating post by id: ${consulta.id}, error: ${error.message}`);
+            logger.error(`Error updating consulta by id: ${consulta.id}, error: ${error.message}`);
         }
         return { success: !error, error };
     }
+
 }

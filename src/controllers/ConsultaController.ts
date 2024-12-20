@@ -1,13 +1,19 @@
 import { ConsultaService } from "../services/ConsultaService";
 import { Request, Response } from "express-serve-static-core";
 import logger from "../utils/logger";
+import { AuthService } from "../services/AuthService"
+import {ProcedimentoService} from "../services/ProcedimentoService";
 
 
 export class ConsultaController {
     private consultaService: ConsultaService;
+    private supaBaseService: AuthService
+    private procedimentoService: ProcedimentoService;
 
     constructor() {
         this.consultaService = new ConsultaService();
+        this.supaBaseService = new AuthService();
+        this.procedimentoService = new ProcedimentoService();
         this.getConsultaById = this.getConsultaById.bind(this);
         this.getConsultaByUser = this.getConsultaByUser.bind(this);
         this.getAllConsultas = this.getAllConsultas.bind(this);
@@ -16,7 +22,7 @@ export class ConsultaController {
         this.updateConsulta = this.updateConsulta.bind(this);
     }
 
-    private handleResponse(res: Response, success: boolean, error: any, successMessage: string): void {
+    private handleResponse(res: Response, success: boolean, error: any, successMessage: any): void {
         if (error) {
             logger.error(`Error: ${error.message}`);
             res.status(400).json({ error: error.message });
@@ -39,52 +45,70 @@ export class ConsultaController {
     }
 
     public async getConsultaById(req: Request, res: Response): Promise<void> {
-        logger.info(`Fetching post by id: ${req.params.id}`);
+        logger.info(`Fetching consulta by id: ${req.params.id}`);
         const { id } = req.params;
         const token = this.getToken(req);
         const { data, error } = await this.consultaService.getById(id, token);
-        this.handleResponse(res, !!data, error, 'Post');
+        this.handleResponse(res, !!data, error, data);
     }
 
     public async getConsultaByUser(req: Request, res: Response): Promise<void> {
-        logger.info(`Fetching posts by user id: ${req.params.id}`);
+        logger.info(`Fetching consultas by user id: ${req.params.id}`);
         const { id } = req.params;
         const token = this.getToken(req);
         const { data, error } = await this.consultaService.getByUserId(id, token);
-        this.handleResponse(res, !!data, error, 'Posts by User');
+        this.handleResponse(res, !!data, error, data);
     }
 
     public async getAllConsultas(req: Request, res: Response): Promise<void> {
-        logger.info('Fetching all posts');
+        logger.info('Fetching all consultas');
         const token = this.getToken(req);
         const { data, error } = await this.consultaService.getAll(token);
-        this.handleResponse(res, !!data, error, 'Posts');
+        this.handleResponse(res, !!data, error, data);
     }
 
     public async deleteConsulta(req: Request, res: Response): Promise<void> {
-        logger.info(`Deleting post by id: ${req.params.id}`);
+        logger.info(`Deleting consulta by id: ${req.params.id}`);
         const { id } = req.params;
         const token = this.getToken(req);
         const { success, error } = await this.consultaService.delete(id, token);
-        this.handleResponse(res, success, error, 'Post deleted successfully');
+        this.handleResponse(res, success, error, 'Consulta deleted successfully');
     }
 
     public async createConsulta(req: Request, res: Response): Promise<void> {
-        logger.info('Creating a new post');
+        logger.info('Creating a new consulta');
         const token = this.getToken(req);
 
-        const post = req.body;
-        const { success, error } = await this.consultaService.create(post, token);
-        this.handleResponse(res, success, error, 'Post created successfully');
+        // Obtém usuário a partir do token
+        const user = await this.supaBaseService.getUser(token);
+
+        // Obtém informações do procedimento
+        const procedimento = await this.procedimentoService.getById(req.body.procedimento, token);
+
+        // Sorteia um médico da lista
+        if (!procedimento.data.medicos || procedimento.data.medicos.length === 0) {
+            return this.handleResponse(res, false, 'Nenhum médico encontrado para o procedimento informado', null);
+        }
+        const randomIndex = Math.floor(Math.random() * procedimento.data.medicos.length);
+        const medicoSelecionado = procedimento.data.medicos[randomIndex];
+
+        // Monta o objeto da consulta
+        const consulta = req.body;
+        consulta.user = user.data.user.id;
+        consulta.medico = medicoSelecionado;
+
+        // Cria a consulta
+        const { success, error } = await this.consultaService.create(consulta, token);
+        this.handleResponse(res, success, error, 'Consulta created successfully');
     }
 
 
     public async updateConsulta(req: Request, res: Response): Promise<void> {
-        logger.info(`Updating post by id: ${req.params.id}`);
-        const post = req.body;
-        post.id = req.params.id;
+        logger.info(`Updating consulta by id: ${req.params.id}`);
+        const consulta = req.body;
+        consulta.id = req.params.id;
         const token = this.getToken(req);
-        const { success, error } = await this.consultaService.update(post, token);
-        this.handleResponse(res, success, error, 'Post updated successfully');
+        const { success, error } = await this.consultaService.update(consulta, token);
+        this.handleResponse(res, success, error, 'Consulta updated successfully');
     }
 }
